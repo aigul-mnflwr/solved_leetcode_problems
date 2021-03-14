@@ -1,0 +1,13 @@
+def commonChars(arr):
+
+     chars_count = Counter(arr[0])
+
+     for word in arr:
+         chars_count &= Counter(word)
+
+
+     result = []
+     for ch, count in chars_count.items():
+         result += [ch] * count
+
+     return result
