@@ -1,0 +1,17 @@
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        temp = []
+
+        for el in nums:
+            count = 0
+            while el > 0:
+                count += 1
+                el = el//10
+            temp.append(count)
+
+        result = 0
+        for el in temp:
+            if el % 2 == 0:
+                result += 1
+
+        return result
