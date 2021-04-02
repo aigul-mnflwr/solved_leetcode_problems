@@ -1,0 +1,30 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        # temp = []
+        # marker = head
+        # while marker:
+        #     temp.append(marker.val)
+        #     marker = head.next
+        
+        
+        # if len(temp)%2 == 0:
+        #     return temp[(len(temp)/2)+1]
+        # else:
+        #     return temp[round(len(temp)/2)]
+        
+        # return temp[len(temp)//2]
+        
+        slow, fast = head, head
+        
+        
+        while fast and fast.next:
+            
+            slow = slow.next
+            fast = fast.next.next
+        
+        return slow
