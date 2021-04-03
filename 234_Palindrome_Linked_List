@@ -1,0 +1,29 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def isPalindrome(self, head: ListNode) -> bool:
+            
+            marker = head
+            container = []
+                        
+            while marker:
+                    container.append(marker.val)
+                    marker = marker.next
+            
+            marker = head
+            
+            for el in container[::-1]:
+                if el != marker.val:
+                    return False
+                marker = marker.next
+                
+            return True
+            
+##Explanation:
+1. Traverse the LinkedList and add their elements to the container.
+2. Reverse the elements of the container.
+3. Compare each element in the container with nodes in LinkedList.
+4. If element doesn't match returh False.
