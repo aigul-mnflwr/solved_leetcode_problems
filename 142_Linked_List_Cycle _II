@@ -1,0 +1,29 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        
+        tortoise, hare = head, head
+        
+        if not head:
+            return None
+        tortoise, hare = head, head
+        
+        while head.next and head.next.next:
+            tortoise = tortoise.next
+            hare = hare.next.next
+            if tortoise is hare:
+                tortoise = head
+                while tortoise != hare:
+                    tortoise = tortoise.next
+                    hare = hare.next
+                return tortoise
+        return null
+        
+# we set two pointers tortoise and hare to the beginning of our Linked List. While references to the next node and after next node aren't None
+we need to point tortoise to the next element and hare to after next node. If hare catches tortoise, tortoise resets to the head. After that, our
+both creatures traverse the linked until they meet each other with the same speed. If they meet, we return the node where they met.
