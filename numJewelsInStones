@@ -1,0 +1,31 @@
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        temp = []
+        for jewel in jewels:
+            for stone in stones:
+                if jewel == stone:
+                    temp.append(jewel)
+        return len(temp)
+
+
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        count = 0
+        temp = {} 
+        
+        for i in range(0,len(stones)):
+            letter = stones[i]
+            if letter in temp:
+                temp[letter] += 1
+            else:
+                temp[letter] = 1
+        
+        for jewel in jewels:
+            try:
+               c = temp[jewel]
+               count += c
+            except:
+                continue
+        
+        return count
+v
